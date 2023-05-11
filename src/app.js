@@ -19,6 +19,10 @@ db.sync()
 
 const PORT = process.env.PORT || 3000;
 
+app.get('/health', (req, res) => {
+    res.sendStatus(200);
+  });
+
 app.get("/", (req, res)=>{
     res.render("index")
 })
