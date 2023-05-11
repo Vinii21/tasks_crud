@@ -2,11 +2,12 @@ const express = require("express")
 require("dotenv").config()
 const db = require("./utils/database")
 const TODOS = require("./models/todos.models")
+const cors = require("cors")
 
 const app = express()
 
 app.set("view engine", "ejs")
-app.use(express.static("public"), express.json())
+app.use(express.static("public"), express.json(), cors())
 
 db.authenticate()
     .then(()=>console.log("Base de datos Conectada"))
